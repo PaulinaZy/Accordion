@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./Sass/style.css">
+
+  <!--FONTS-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+
+</head>
+
+<body>
+  <main>
+    <section class="faq">
+      <!--PICTURE-->
+      <div class="pic-container">
+        <picture>
+          <source srcset="./images/illustration-woman-online-desktop.svg" media="(min-width: 1000px)">
+          <img src="./images/illustration-woman-online-mobile.svg"
+            alt="Illustration of a woman standing in front of monitor">
+        </picture>
+
+      </div>
+      <!--FAQ items-->
+      <div class="faq-container">
+        <h1>FAQ</h1>
+        <div class="faq-item">
+          <div class="question">
+            <p>How many team members can I invite?
+            </p>
+            <div>
+              <img src="./images/icon-arrow-down.svg" alt="Arrow" class="arrow">
+            </div>
+          </div>
+          <p class="answer hidden">You can invite up to 2 additional users on the Free plan. There is no limit on
+            team members for the Premium plan.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="question">
+            <p>What is the maximum file upload size?
+            </p>
+            <div>
+              <img src="./images/icon-arrow-down.svg" alt="Arrow" class="arrow">
+            </div>
+          </div>
+          <p class="answer hidden">
+            No more than 2GB. All files in your account must fit your allotted storage space.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="question">
+            <p>
+              How do I reset my password?
+            </p>
+            <div>
+              <img src="./images/icon-arrow-down.svg" alt="Arrow" class="arrow">
+            </div>
+          </div>
+          <p class="answer hidden">
+            Click “Forgot password” from the login page or “Change password” from your profile page.
+            A reset link will be emailed to you.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="question">
+            <p>
+              Can I cancel my subscription?
+            </p>
+            <div>
+              <img src="./images/icon-arrow-down.svg" alt="Arrow" class="arrow">
+            </div>
+          </div>
+          <p class="answer hidden">
+            Yes! Send us a message and we’ll process your request no questions asked.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="question">
+            <p>
+              Do you provide additional support?
+            </p>
+            <div>
+              <img src="./images/icon-arrow-down.svg" alt="Arrow" class="arrow">
+            </div>
+          </div>
+          <p class="answer hidden">
+            Chat and email support is available 24/7. Phone lines are open during normal business hours.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- <img src="./images/illustration-box-desktop.svg" alt="Illustration of a box" class="box"> -->
+  </main>
+
+  <!--JS-->
+  <script src="main.js"></script>
+</body>
+
+</html>

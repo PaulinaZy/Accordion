@@ -1,0 +1,24 @@
+//COLORS
+$h1-bold: #1d1e35;
+$p-question: #4a4b5e;
+$p-answer: #787887;
+$dividers: #e7e7e9;
+$hover: #f47c57;
+$bg-gradient: linear-gradient(#af67e9, #6565e7);
+$white: #fff;
+
+//FONT
+$font: 'Kumbh Sans',
+sans-serif;
+
+//SIZES
+$h1-size: 1.75rem; //28px
+$p-size: 0.75rem; //12px
+
+//BREAKPOINT
+
+@mixin breakpoint {
+    @media (min-width: 1000px) {
+        @content;
+    }
+}
