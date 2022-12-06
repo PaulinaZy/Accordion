@@ -1,14 +1,6 @@
 @use "reset";
 @use "variables"as v;
 
-//HIDDEN and ACTIVE CLASS
-.hidden {
-    display: none;
-}
-
-.test .active .a {
-    display: block;
-}
 
 body {
     main {
@@ -16,60 +8,50 @@ body {
         font-family: v.$font;
         width: 100%;
         min-height: 100vh;
-        padding-top: 9.2rem;
-        position: relative;
 
-        @include v.breakpoint {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 0;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        //GENERAL LAYOUT
+
+        //GENERAL LAYOUT FAQ CARD
         .faq {
-            background-color: v.$white;
-            background-image: url("../images/bg-pattern-mobile.svg");
-            background-repeat: no-repeat;
-            background-position: top center;
             margin-inline: 1.5rem;
+            width: 20.5rem;
+            min-height: 33.3rem;
             padding: 8.625rem 1.5rem 3rem 1.5rem;
             border-radius: 1rem;
             position: relative;
             box-shadow: 0px 20px 40px darken(#6565e7, 50%);
+            background: v.$white url("../images/bg-pattern-mobile.svg") top center no-repeat;
 
-
+            &::before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: -6.9rem;
+                left: 0;
+                background:
+                    url('../images/illustration-woman-online-mobile.svg') center top no-repeat;
+                background-size: 15rem;
+            }
 
             @include v.breakpoint {
                 width: 57.5rem;
-                padding: 4.7rem 6.9rem;
-                background-image: url("../images/bg-pattern-desktop.svg");
-                background-position: bottom -168px left -601px;
-                background-size: auto;
-                overflow: hidden;
+                padding: 4.7rem 6.9rem 4.7rem 29rem;
+                background-color: v.$white;
+                background-image:
+                    url("../images/illustration-woman-online-desktop.svg"),
+                    url("../images/bg-pattern-desktop.svg");
+                background-position: -5.6rem center,
+                    -36.4rem -19.25rem;
+                background-size: auto, auto;
 
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .pic-container {
-                img {
-                    width: 240px;
-                    position: absolute;
-                    top: 0;
-                    left: 50%;
-                    transform: translate(-50%, -60%);
-
-                    @include v.breakpoint {
-                        width: initial;
-                        top: 50%;
-                        left: 0;
-                        transform: translate(-20%, -50%);
-                    }
+                &::before {
+                    background: none;
                 }
             }
-
-
 
             //HEADER
             h1 {
@@ -84,40 +66,72 @@ body {
                 }
             }
 
-            //FAQ ITEM
-            .faq-item {
-                padding: 1.1rem 0;
-                border-bottom: 1px solid v.$dividers;
-                font-size: v.$p-size;
+            .faq-container {
 
-                .question {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    color: v.$p-question;
-                    cursor: pointer;
+                //FAQ ITEMS
+                .faq-item {
+                    padding: 1.1rem 0;
+                    border-bottom: 1px solid v.$dividers;
+                    font-size: v.$p-size;
 
-                    &:hover {
-                        color: v.$hover;
+                    .question {
+                        color: v.$p-question;
+                        cursor: pointer;
+                        position: relative;
+
+                        &:hover {
+                            color: v.$hover;
+                        }
+
+                        &::before {
+                            content: url("../images/icon-arrow-down.svg");
+                            position: absolute;
+                            height: auto;
+                            width: auto;
+                            top: 0;
+                            right: 0;
+                            transition: all 0.5s ease-in;
+                        }
+                    }
+
+                    .answer {
+                        color: v.$p-answer;
+                        height: 0;
+                        opacity: 0;
+                        transition: all 0.5s ease-in;
+                    }
+
+                }
+
+                .open {
+                    .question {
+                        font-weight: 700;
+                        color: v.$h1-bold;
+
+                        &::before {
+                            transform: rotate(180deg);
+
+                        }
+                    }
+
+                    .answer {
+                        height: auto;
+                        opacity: 1;
+                        margin-top: 1.1rem;
                     }
                 }
 
-                .answer {
-                    color: v.$p-answer;
-                    margin-top: 1.1rem;
+                .box {
+                    display: none;
+
+                    @include v.breakpoint {
+                        display: block;
+                        position: absolute;
+                        top: 14rem;
+                        left: -6.25rem;
+                        transition: all 0.5s ease-in;
+                    }
                 }
-            }
-        }
-
-        .box {
-            display: none;
-
-            @include v.breakpoint {
-                display: block;
-                position: absolute;
-                top: 50%;
-                left: 200px;
-                transform: translateY(-50%);
             }
         }
     }

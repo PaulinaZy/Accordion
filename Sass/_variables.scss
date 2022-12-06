@@ -18,7 +18,7 @@ $p-size: 0.75rem; //12px
 //BREAKPOINT
 
 @mixin breakpoint {
-    @media (min-width: 1000px) {
+    @media (min-width: 1100px) {
         @content;
     }
 }

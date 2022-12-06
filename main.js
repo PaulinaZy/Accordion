@@ -1,30 +1,32 @@
 const faqItem = document.querySelectorAll(".faq-item");
+const box = document.querySelector("#box");
 
-
+//Loop through all faq items and add click listener
 faqItem.forEach(item => {
-    let arrow = item.querySelector(".arrow");
-    let answer = item.querySelector(".answer");
-    let question = item.querySelector(".question")
+    item.querySelector(".question").addEventListener("click", toggleOpen)
+})
 
+//Function to toggle open class
+function toggleOpen(e) {
+    //Mark the whole current FAQ item    e.target is a paragraph, we need to go 2 levels up
+    let currentFAQItem = e.target.parentElement.parentElement;
 
-    function openAnswer() {
+    //move to box when faq item is clicked
+    box.style.transform = "translateX(-50px)";
 
-
-        answer.classList.toggle("hidden");
-
-        if (!answer.classList.contains("hidden")) {
-            faqItem.forEach(x => {
-                x.querySelector(".answer").classList.add("hidden");
-                x.querySelector(".question").style.fontWeight = "400";
-                x.querySelector(".arrow").style.transform = "rotate(0)";
-            })
-            answer.classList.toggle("hidden");
-            question.style.fontWeight = "700";
-            arrow.style.transform = "rotate(180deg)";
-        } else {
-            question.style.fontWeight = "400";
-            arrow.style.transform = "rotate(0)";
+    //LOOP - remove class open on all faq items that are not currently clicked
+    faqItem.forEach(item => {
+        if (item !== currentFAQItem) {
+            item.classList.remove("open");
         }
+    })
+
+    //toggle open class on clicked faq item
+    currentFAQItem.classList.toggle("open");
+    if (!currentFAQItem.classList.contains("open")) {
+        box.style.transform = "translateX(0)";
     }
-    item.addEventListener("click", openAnswer)
-});
+
+
+
+}
